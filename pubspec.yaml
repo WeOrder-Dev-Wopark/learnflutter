@@ -14,11 +14,21 @@ dependencies:
 
   cupertino_icons: ^1.0.2
 
+  # riverpod
+  flutter_riverpod: ^2.4.9
+  riverpod_annotation: ^2.3.3
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
   flutter_lints: ^2.0.0
+
+  # riverpod
+  build_runner:
+  custom_lint:
+  riverpod_generator: ^2.3.9
+  riverpod_lint: ^2.3.7
 
 flutter:
   uses-material-design: true
