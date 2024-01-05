@@ -17,11 +17,11 @@ class Message {
     required this.type,
   });
 
-  factory Message.send({required text}) {
+  factory Message.send({required String text, required DateTime time}) {
     return Message(
       content: text,
       type: MessageType.sent,
-      createAt: DateTime.now(),
+      createAt: time,
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:learnflutter/screens/chat/view_model/chat_view_model.dart';
 
 class BottomTextField extends ConsumerStatefulWidget {
   const BottomTextField({super.key});
@@ -20,6 +21,8 @@ class _BottomTextFieldState extends ConsumerState<BottomTextField> {
 
   @override
   Widget build(BuildContext context) {
+    final readProvider = ref.read(chatViewModelProvider);
+    final sendMessage = readProvider.sendMessage;
     return SafeArea(
       child: Row(
         children: [
@@ -30,7 +33,10 @@ class _BottomTextFieldState extends ConsumerState<BottomTextField> {
             ),
           ),
           IconButton(
-              onPressed: () {},
+              onPressed: () {
+                sendMessage(text: _textEditingController.text);
+                _textEditingController.text = '';
+              },
               icon: Container(
                 padding: const EdgeInsets.all(6.0),
                 decoration: BoxDecoration(

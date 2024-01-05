@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:learnflutter/screens/chat/screen/chat_screen.dart';
-
-final helloWorldProvider = Provider((ref) => 'hello world!');
+import 'package:learnflutter/screens/chat/view/chat_view.dart';
 
 void main() {
   runApp(
@@ -19,7 +17,7 @@ class App extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return const MaterialApp(
       title: "1:1 Chat App",
-      home: ChatScreen(),
+      home: ChatView(),
     );
   }
 }
