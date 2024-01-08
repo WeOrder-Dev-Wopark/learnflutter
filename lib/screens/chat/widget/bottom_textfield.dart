@@ -23,6 +23,7 @@ class _BottomTextFieldState extends ConsumerState<BottomTextField> {
   Widget build(BuildContext context) {
     final readProvider = ref.read(chatViewModelProvider);
     final sendMessage = readProvider.sendMessage;
+
     return SafeArea(
       child: Row(
         children: [
