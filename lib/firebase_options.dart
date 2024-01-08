@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -28,10 +25,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -49,6 +43,15 @@ class DefaultFirebaseOptions {
     }
   }
 
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyBju7HYAtREXONhp3TOOKJEGajuHu2EclQ',
+    appId: '1:115835405449:web:3a748e428a9ceb9ab13258',
+    messagingSenderId: '115835405449',
+    projectId: 'learn-flutter-d18fa',
+    authDomain: 'learn-flutter-d18fa.firebaseapp.com',
+    storageBucket: 'learn-flutter-d18fa.appspot.com',
+  );
+
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyBotr_IAosPUYBWE7GrQjxhIoVch8CmkGg',
     appId: '1:115835405449:android:888fe948468f889db13258',
@@ -63,6 +66,17 @@ class DefaultFirebaseOptions {
     messagingSenderId: '115835405449',
     projectId: 'learn-flutter-d18fa',
     storageBucket: 'learn-flutter-d18fa.appspot.com',
+    iosClientId: '115835405449-e3f1lqirgnpgdenmojp4crt294vq4bup.apps.googleusercontent.com',
     iosBundleId: 'com.example.learnflutter',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyD1gPaLT2-i6EyNR8wqmNMUqV6NwvtSCdk',
+    appId: '1:115835405449:ios:3579e0bb469e4511b13258',
+    messagingSenderId: '115835405449',
+    projectId: 'learn-flutter-d18fa',
+    storageBucket: 'learn-flutter-d18fa.appspot.com',
+    iosClientId: '115835405449-8u0g6oogrqgaooue7cvtv1iev1injhl7.apps.googleusercontent.com',
+    iosBundleId: 'com.example.learnflutter.RunnerTests',
   );
 }

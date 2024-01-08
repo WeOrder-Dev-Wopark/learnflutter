@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:learnflutter/models/message.dart';
-import 'package:learnflutter/screens/chat/view_model/chat_view_model.dart';
+import 'package:learnflutter/pages/chat/view_model/chat_view_model.dart';
 
-import 'package:learnflutter/screens/chat/widget/bottom_textfield.dart';
+import 'package:learnflutter/pages/chat/widget/bottom_textfield.dart';
 
 class ChatView extends ConsumerStatefulWidget {
   const ChatView({super.key});

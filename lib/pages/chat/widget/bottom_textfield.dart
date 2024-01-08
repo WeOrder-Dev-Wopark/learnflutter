@@ -1,6 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:learnflutter/screens/chat/view_model/chat_view_model.dart';
+import 'package:go_router/go_router.dart';
+import 'package:learnflutter/pages/chat/view_model/chat_view_model.dart';
 
 class BottomTextField extends ConsumerStatefulWidget {
   const BottomTextField({super.key});
@@ -27,6 +29,12 @@ class _BottomTextFieldState extends ConsumerState<BottomTextField> {
     return SafeArea(
       child: Row(
         children: [
+          ElevatedButton(
+            onPressed: () async {
+              await FirebaseAuth.instance.signOut();
+            },
+            child: const Text('logout'),
+          ),
           Expanded(
             child: Container(
               padding: const EdgeInsets.only(left: 8.0),

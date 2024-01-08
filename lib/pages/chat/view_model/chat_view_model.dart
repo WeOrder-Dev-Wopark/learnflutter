@@ -22,7 +22,7 @@ class ChatViewModel extends ChangeNotifier {
     final today = DateTime.now();
     final message = Message.send(text: text, time: today);
 
-    _messageList.insert(0, message);
+    _messageList.add(message);
 
     notifyListeners();
   }
