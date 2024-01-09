@@ -20,9 +20,11 @@ class LoginView extends ConsumerWidget {
         idToken: googleAuth?.idToken,
       );
 
+      log("!!!");
+
       return await FirebaseAuth.instance.signInWithCredential(credential);
     } catch (e) {
-      log('esception ====> $e');
+      log('exception ====> $e');
     }
   }
 
@@ -42,11 +44,12 @@ class LoginView extends ConsumerWidget {
               child: const Text("anonymously login"),
             ),
             ElevatedButton(
-              onPressed: () async {
-                final res = await signInWithGoogle();
+              // onPressed: () {
+              //   // final res = await signInWithGoogle();
 
-                log(res.toString());
-              },
+              //   // log(res.toString());
+              // },
+              onPressed: () {},
               child: const Text("google login"),
             ),
           ],
