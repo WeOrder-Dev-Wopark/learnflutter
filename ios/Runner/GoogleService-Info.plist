@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CLIENT_ID</key>
+	<string>115835405449-e3f1lqirgnpgdenmojp4crt294vq4bup.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.115835405449-e3f1lqirgnpgdenmojp4crt294vq4bup</string>
 	<key>API_KEY</key>
 	<string>AIzaSyD1gPaLT2-i6EyNR8wqmNMUqV6NwvtSCdk</string>
 	<key>GCM_SENDER_ID</key>
@@ -26,5 +30,7 @@
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:115835405449:ios:2ec6fb51c6fd1049b13258</string>
+	<key>DATABASE_URL</key>
+	<string>https://learn-flutter-d18fa-default-rtdb.firebaseio.com</string>
 </dict>
 </plist>

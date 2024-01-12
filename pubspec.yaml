@@ -24,6 +24,7 @@ dependencies:
   # firebase
   firebase_core:
   firebase_auth:
+  firebase_database:
 
   ## google sign in
   google_sign_in: ^6.2.1

@@ -54,6 +54,7 @@ class DefaultFirebaseOptions {
     appId: '1:115835405449:android:888fe948468f889db13258',
     messagingSenderId: '115835405449',
     projectId: 'learn-flutter-d18fa',
+    databaseURL: 'https://learn-flutter-d18fa-default-rtdb.firebaseio.com',
     storageBucket: 'learn-flutter-d18fa.appspot.com',
   );
 
@@ -62,6 +63,7 @@ class DefaultFirebaseOptions {
     appId: '1:115835405449:ios:2ec6fb51c6fd1049b13258',
     messagingSenderId: '115835405449',
     projectId: 'learn-flutter-d18fa',
+    databaseURL: 'https://learn-flutter-d18fa-default-rtdb.firebaseio.com',
     storageBucket: 'learn-flutter-d18fa.appspot.com',
     iosClientId: '115835405449-e3f1lqirgnpgdenmojp4crt294vq4bup.apps.googleusercontent.com',
     iosBundleId: 'com.example.learnflutter',

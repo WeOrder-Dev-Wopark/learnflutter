@@ -1,56 +1,26 @@
-import 'dart:developer';
-
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:google_sign_in/google_sign_in.dart';
+import 'package:go_router/go_router.dart';
+import 'package:learnflutter/auth/auth_provider.dart';
 
 class LoginView extends ConsumerWidget {
   const LoginView({super.key});
 
-  Future<dynamic> signInWithGoogle() async {
-    try {
-      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-
-      final GoogleSignInAuthentication? googleAuth =
-          await googleUser?.authentication;
-
-      final credential = GoogleAuthProvider.credential(
-        accessToken: googleAuth?.accessToken,
-        idToken: googleAuth?.idToken,
-      );
-
-      log("!!!");
-
-      return await FirebaseAuth.instance.signInWithCredential(credential);
-    } catch (e) {
-      log('exception ====> $e');
-    }
-  }
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final auth = ref.read(authProvider);
+
     return Scaffold(
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton(
-              onPressed: () async {
-                final res = await FirebaseAuth.instance.signInAnonymously();
-
-                log(res.toString());
+              onPressed: () {
+                auth.signIn();
+                context.go('/');
               },
               child: const Text("anonymously login"),
-            ),
-            ElevatedButton(
-              // onPressed: () {
-              //   // final res = await signInWithGoogle();
-
-              //   // log(res.toString());
-              // },
-              onPressed: () {},
-              child: const Text("google login"),
             ),
           ],
         ),
