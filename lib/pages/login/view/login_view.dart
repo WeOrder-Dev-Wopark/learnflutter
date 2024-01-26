@@ -9,6 +9,7 @@ class LoginView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final auth = ref.read(authProvider);
+    final user = ref.read();
 
     return Scaffold(
       body: Center(
@@ -17,7 +18,8 @@ class LoginView extends ConsumerWidget {
           children: [
             ElevatedButton(
               onPressed: () {
-                auth.signIn();
+                final res = auth.signIn();
+
                 context.go('/');
               },
               child: const Text("anonymously login"),
