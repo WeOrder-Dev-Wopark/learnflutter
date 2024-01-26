@@ -12,13 +12,13 @@ class AuthRepository {
 
   final FirebaseAuth _auth;
 
-  Stream<User?> get authState => _auth.authStateChanges();
-
-  Future<void> signIn() async {
+  Future<dynamic> signIn() async {
     try {
       final res = await _auth.signInAnonymously();
 
       log('[SIGNIN]: ${res.toString()}');
+
+      return res;
     } on FirebaseAuthException catch (e) {
       log(e.toString());
     }

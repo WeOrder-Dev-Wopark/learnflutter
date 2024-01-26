@@ -13,12 +13,11 @@ class AuthProvider {
 
   final AuthRepository _authRepository;
 
-  Stream<User?> getAuthState() {
-    return _authRepository.authState;
-  }
+  Future<dynamic> signIn() async {
+    final res = await _authRepository.signIn();
 
-  Future<void> signIn() async {
-    return _authRepository.signIn();
+    User user = res.user;
+    return user;
   }
 
   Future<void> signOut() async {

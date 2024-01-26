@@ -1,4 +1,9 @@
+import 'package:learnflutter/models/user.dart';
+
 class Message {
+  /// 작성자
+  final User author;
+
   /// 작성 시간
   final DateTime createAt;
 
@@ -8,25 +13,21 @@ class Message {
   /// 읽음 처리
   final bool isRead = false;
 
-  /// message 타입
-  final MessageType type;
-
   Message({
+    required this.author,
     required this.createAt,
     required this.content,
-    required this.type,
   });
 
-  factory Message.send({required String text, required DateTime time}) {
+  factory Message.send({
+    required User author,
+    required String text,
+    required DateTime time,
+  }) {
     return Message(
+      author: author,
       content: text,
-      type: MessageType.sent,
       createAt: time,
     );
   }
-}
-
-enum MessageType {
-  sent,
-  received,
 }
