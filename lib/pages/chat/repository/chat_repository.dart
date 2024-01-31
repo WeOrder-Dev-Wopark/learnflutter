@@ -1,28 +1,16 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:learnflutter/models/message.dart';
 
 final chatRepositoryProvider = Provider((ref) {
   return ChatRepository();
 });
 
 class ChatRepository {
-  // final List<Message> _messageList = [
-  //   Message(createAt: DateTime.now(), content: "hi1", type: MessageType.sent),
-  //   Message(createAt: DateTime.now(), content: "hi2", type: MessageType.sent),
-  //   Message(createAt: DateTime.now(), content: "hi3", type: MessageType.sent),
-  //   Message(createAt: DateTime.now(), content: "hi4", type: MessageType.sent),
-  //   Message(createAt: DateTime.now(), content: "hi5", type: MessageType.sent),
-  //   Message(createAt: DateTime.now(), content: "hi6", type: MessageType.sent),
-  // ];
+  final FirebaseDatabase _realtimeDatabase = FirebaseDatabase.instance;
 
-  // List<Message> getMessageList() {
-  //   return _messageList;
-  // }
-
-  // void sendMessage({required String text}) {
-  //   DateTime currentTime = DateTime.now();
-
-  //   final message = Message.send(text: text, time: currentTime);
-
-  //   _messageList.insert(0, message);
-  // }
+  Future<void> sendMessage(Message message) async {
+    final DatabaseReference ref = _realtimeDatabase.ref().child('messages');
+    await ref.push().set(message.toJson());
+  }
 }

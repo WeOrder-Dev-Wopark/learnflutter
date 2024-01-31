@@ -14,10 +14,17 @@ class User {
     };
   }
 
+  toJson() {
+    return {
+      'uid': uid,
+      'name': name,
+    };
+  }
+
   factory User.fromMap(Map<String, dynamic> map) {
     return User(
-      uid: map['uid'] as String,
-      name: map['name'] as String,
+      name: map['name'],
+      uid: map['uid'],
     );
   }
 }

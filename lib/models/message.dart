@@ -1,3 +1,4 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:learnflutter/models/user.dart';
 
 class Message {
@@ -5,7 +6,7 @@ class Message {
   final User author;
 
   /// 작성 시간
-  final DateTime createAt;
+  final String createAt;
 
   /// 내용
   final String content;
@@ -19,15 +20,16 @@ class Message {
     required this.content,
   });
 
-  factory Message.send({
-    required User author,
-    required String text,
-    required DateTime time,
-  }) {
-    return Message(
-      author: author,
-      content: text,
-      createAt: time,
-    );
+  Message.fromSnapshot(DataSnapshot snapshot)
+      : author = (snapshot.value as Map)['author'],
+        createAt = (snapshot.value as Map)['createAt'],
+        content = (snapshot.value as Map)['content'];
+
+  toJson() {
+    return {
+      'author': author.toJson(),
+      'createAt': createAt,
+      'content': content,
+    };
   }
 }
